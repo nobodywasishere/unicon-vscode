@@ -1,0 +1,25 @@
+{
+    "name": "unicon-language",
+    "displayName": "Unicon Language",
+    "description": "Syntax highlighting for unicon and icon",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.66.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "icn",
+            "aliases": ["Unicon", "icn"],
+            "extensions": [".icn"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "icn",
+            "scopeName": "source.icn",
+            "path": "./syntaxes/icn.tmLanguage.json"
+        }]
+    }
+}
