@@ -14,12 +14,23 @@
             "id": "icn",
             "aliases": ["Unicon", "icn"],
             "extensions": [".icn"],
-            "configuration": "./language-configuration.json"
+            "configuration": "./language-configuration-unicon.json"
+        },
+        {
+            "id": "ucode",
+            "aliases": ["Ucode"],
+            "extensions": [".u", ".u1", ".u2"],
+            "configuration": "./language-configuration-ucode.json"
         }],
         "grammars": [{
             "language": "icn",
             "scopeName": "source.icn",
             "path": "./syntaxes/icn.tmLanguage.json"
+        },
+        {
+            "language": "ucode",
+            "scopeName": "source.u",
+            "path": "./syntaxes/ucode.tmLanguage.json"    
         }]
     }
 }

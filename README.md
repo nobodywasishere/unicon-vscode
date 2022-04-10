@@ -2,6 +2,8 @@
 
 This is the README for your extension "unicon-language". After writing up a brief description, we recommend including the following sections.
 
+Substantial portions of this codebase have been taken from [Pygments](https://github.com/pygments/pygments) (which has a BSD 2-Clause "Simplified" license) and [language-icon](https://github.com/Chimstaz/language-icon) (which has an MIT license).
+
 ## Features
 
 Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.

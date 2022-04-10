@@ -3,17 +3,84 @@
 	"name": "Unicon",
 	"patterns": [
 		{
-			"include": "#keywords"
+			"match": "#.*",
+			"name": "comment.line.unicon"
+		},
+		{
+			"match": "^\\$(define|else|endif|error|ifdef|ifndef|include|line|undef)",
+			"name": "entity.name.function.preprocessor"
+		},
+		{
+			"name": "constant.numeric.integer",
+			"match": "\\b(\\d+)\\b"
+		},
+		{
+			"name": "constant.numeric.float",
+			"match": "\\b\\d*\\.\\d+(E[+-]?\\d+)?\\b"
+		},
+		{
+			"name": "constant.numeric.float",
+			"match": "\\b\\d+\\.\\d*(E[+-]?\\d+)?\\b"
+		},
+		{
+			"match": "(\\&allocated|\\&ascii|\\&clock|\\&collections|\\&cset|\\&current|\\&date|\\&dateline|\\&digits|\\&dump|\\&e|\\&error|\\&errornumber|\\&errortext|\\&errorvalue|\\&errout|\\&fail|\\&features|\\&file|\\&host|\\&input|\\&lcase|\\&letters|\\&level|\\&line|\\&main|\\&null|\\&output|\\&phi|\\&pi|\\&pos|\\&progname|\\&random|\\&regions|\\&source|\\&storage|\\&subject|\\&time|\\&trace|\\&ucase|\\&version)\\b",
+			"name": "support.constant.icon"
+		},
+		{
+			"name": "keyword.operator",
+			"match": "\\bnot\\b|\\+|\\-|\\~|\\=|\\@|\\^|\\*|\\?|\\!|\\\\|\\/|\\.|\\%|\\||\\&|\\<|\\>|\\:"
 		},
 		{
 			"include": "#strings"
+		},
+		{
+			"include": "#singlestrings"
+		},
+		{
+			"include": "#keywords"
+		},
+		{
+			"match": "\\b(break|do|global|local|record|then|by|else|if|next|repeat|to|case|end|initial|not|return|until|every|invocable|of|static|while|link|procedure|suspend)\\b",
+			"name": "keyword.control.icon"
+		},
+		{
+			"match": "\\b(create|default|fail)\\b",
+			"name": "constant.language.icon"
+		},
+		{
+			"match": "\\b(null|string|co-expression|table|integer|cset|procedure|set|real|file|list)\\b",
+			"name": "support.type.icon"
+		},
+		{
+			"match": "(^\\s*procedure\\s)([a-zA-Z_][a-zA-Z_0-9])(\\()",
+			"captures": {
+				"1": {
+					"name": "entity.name.function"
+				}
+			}
+		},
+    	{
+			"match": "\\b(abs|acos|any|args|asin|atan|bal|center|char|chdir|close|collect|copy|cos|cset|delay|delete|detab|display|dtor|entab|errorclear|exit|exp|find|flush|function|get|getch|getche|getenv|iand|icom|image|insert|integer|ior|ishift|ixor|kbhit|key|left|list|loadfunc|log|many|map|match|member|move|name|numeric|open|ord|pop|pos|proc|pull|push|put|read|reads|real|remove|rename|repl|reverse|right|rtod|runerr|seek|seq|serial|set|sin|sort|sortf|sqrt|stop|string|system|tab|table|tan|trim|type|upto|variable|where|write|writes)\\b",
+			"name": "support.function.icon"
+		},
+		{
+			"match": "\\b([_a-zA-Z]\\w*)\\s*\\(",
+			"captures": {
+				"1": {
+					"name": "entity.name.function.icon"
+				}
+			}
+		},
+		{
+			"match": "(?<=\\.)\\b[_a-zA-Z]\\w*\\b",
+			"name": "entity.other.attribute-name.icon"
 		}
 	],
 	"repository": {
 		"keywords": {
 			"patterns": [{
 				"name": "keyword.control.icn",
-				"match": "\\b(if|while|for|return)\\b"
+				"match": "\\b(abstract|all|break|by|case|class|critical|do|else|end|every|global|if|import|initial|initially|invocable|link|local|method|next|not|of|package|procedure|record|repeat|return|static|suspend|then|thread|to|until|while)\\b"
 			}]
 		},
 		"strings": {
@@ -26,6 +93,17 @@
 					"match": "\\\\."
 				}
 			]
+		},
+		"singlestrings": {
+			"name": "string.quoted.single",
+			"begin": "'",
+			"end": "'",
+			"patterns": [
+				{
+					"name": "constant.character.escape.icn",
+					"match": "\\\\."
+				}
+			]			
 		}
 	},
 	"scopeName": "source.icn"

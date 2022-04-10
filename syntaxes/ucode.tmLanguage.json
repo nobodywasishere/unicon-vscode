@@ -1,0 +1,69 @@
+{
+    "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+    "name": "Ucode",
+    "patterns": [
+        {
+            "name": "comment.line.number-sign",
+            "match": "#.*"
+        },
+        {
+            "include": "#strings"
+        },
+        {
+            "name": "constant.numeric.integer",
+            "match": "\\b(\\d+)\\b"
+        },
+        {
+            "name": "constant.numeric.float",
+            "match": "\\b\\d*\\.\\d+(E[+-]?\\d+)?\\b"
+        },
+        {
+            "name": "constant.numeric.float",
+            "match": "\\b\\d+\\.\\d*(E[+-]?\\d+)?\\b"
+        },
+        {
+            "name": "keyword.control",
+            "match": "\\b(colm|filen|line|synt).*"
+        },
+        {
+            "include": "#keywords"
+        },
+        {
+            "include": "#functions"
+        }
+    ],
+    "repository": {
+        "functions": {
+            "patterns": [
+                {
+                    "name": "entity.name.function",
+                    "match": "\\b(con|declend|end|global|impl|invocable|lab|link|local|record|uid|union|version)\\b"       
+                },
+                {
+                    "name": "keyword.control",
+                    "match": "\\b(any|case|endcase|endevery|endif|endifelse|endrepeat|endsuspend|enduntil|endwhile|every|if|ifelse|repeat|suspend|until|while)\\b"
+                }
+            ]
+        },
+        "keywords": {
+            "patterns": [
+                {
+                    "name": "entity.name.function",
+                    "match": "\\b(asgn|bang|bscan|cat|ccase|chfail|coact|cofail|compl|coret|create|cset|diff|div|dup|efail|einit|end|eqv|eret|error|escan|esusp|field|goto|init|int|invoke|inter|keywd|lconcat|lexeq|lexge|lexgt|lexle|lexlt|lexne|limit|llist|lsusp|mark|mark0|minus|mod|mult|neg|neqv|nonnull|noop|null|number|numeq|numge|numgt|numle|numlt|numne|pfail|plus|pnull|pop|power|pret|proc|psusp|push1|pushn1|random|rasgn|rcv|rcvbk|real|refresh|rswap|sdup|sect|size|snd|sndbk|str|subsc|swap|tabmat|tally|toby|trace|unmark|value|var)\\b"
+                }
+            ]
+        },
+        "strings": {
+            "name": "string.quoted.double.icn",
+            "begin": "\"",
+            "end": "\"",
+            "patterns": [
+                {
+                    "name": "constant.character.escape.icn",
+                    "match": "\\\\."
+                }
+            ]
+        }
+    },
+    "scopeName": "source.u"
+}
